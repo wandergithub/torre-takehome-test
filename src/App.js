@@ -35,7 +35,7 @@ function App() {
                 <ul>
                   {data.strengths.map((element) => {
                     if (element.proficiency === categorie) {
-                      return <li key={Math.random()}>{element.name}</li>;
+                      return <li key={Math.random()} className="skill">{element.name}</li>;
                     }
                     return null;
                   })}
