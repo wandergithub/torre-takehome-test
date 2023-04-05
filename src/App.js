@@ -3,10 +3,12 @@ import { useState } from "react";
 import axios from "axios";
 import Header from "./components/Header";
 import { proficiencies, svgs, exampleState } from "./data";
+import SkillDetails from "./components/SkillDetails";
 
 function App() {
   const [userName, setUserName] = useState("");
   const [data, setData] = useState(exampleState);
+  const [open, setOpen] = useState(false);
 
   const fetchUserData = async () => {
     // const response = await axios.get(`https://torre.bio/api/bios/${userName}`);
@@ -35,7 +37,15 @@ function App() {
                 <ul>
                   {data.strengths.map((element) => {
                     if (element.proficiency === categorie) {
-                      return <li key={Math.random()} className="skill">{element.name}</li>;
+                      return (
+                        <li
+                          key={Math.random()}
+                          className="skill"
+                          onClick={() => setOpen(!open)}
+                        >
+                          {element.name}
+                        </li>
+                      );
                     }
                     return null;
                   })}
@@ -45,6 +55,7 @@ function App() {
           </div>
         </div>
       )}
+      {open && <SkillDetails />}
     </div>
   );
 }
