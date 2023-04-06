@@ -27,7 +27,7 @@ After you're finished please remove all the comments and instructions!
 
 <div align="center">
 
-  <h1><b>Take home project</b></h1>
+  <h1><b>Torre technical testing</b></h1>
 
 </div>
 
