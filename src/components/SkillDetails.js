@@ -11,7 +11,7 @@ const SkillDetails = (props) => {
   // Fetch users and set state to users that match the current skill
   useEffect(() => {
     async function fetchData() {
-      const response = await axios.get('http://127.0.0.1:3000/users/');
+      const response = await axios.get('https://torre-c2xf.onrender.com/users/');
       const list = await response.data;
       const userList = [];
       list.forEach((element) => {
