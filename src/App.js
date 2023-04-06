@@ -6,9 +6,12 @@ import { proficiencies, svgs, exampleState } from "./data";
 import SkillDetails from "./components/SkillDetails";
 
 function App() {
+  // Current username serch
   const [userName, setUserName] = useState("");
+  // Data fetched of the username
   const [data, setData] = useState(exampleState);
-  const [open, setOpen] = useState(false);
+  // Current Skill object for Details pop-up window
+  const [skill, setSkill] = useState(null);
 
   const fetchUserData = async () => {
     // const response = await axios.get(`https://torre.bio/api/bios/${userName}`);
@@ -41,7 +44,7 @@ function App() {
                         <li
                           key={Math.random()}
                           className="skill"
-                          onClick={() => setOpen(!open)}
+                          onClick={() => setSkill(element) }
                         >
                           {element.name}
                         </li>
@@ -55,7 +58,7 @@ function App() {
           </div>
         </div>
       )}
-      {open && <SkillDetails />}
+      {skill && <SkillDetails setSkill={setSkill} skill={skill} />}
     </div>
   );
 }
