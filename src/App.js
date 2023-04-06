@@ -2,7 +2,7 @@ import './App.css';
 import { useState } from 'react';
 import axios from 'axios';
 import Header from './components/Header';
-import { proficiencies, svgs, exampleState } from './data';
+import { proficiencies, svgs } from './data';
 import SkillDetails from './components/SkillDetails';
 
 function App() {
@@ -37,22 +37,23 @@ function App() {
                       : 'No experience but interested'}
                   </h5>
                 </div>
-                <ul>
+                <div className="ul">
                   {data.strengths.map((element) => {
                     if (element.proficiency === categorie) {
                       return (
-                        <li
+                        <button
+                          type="button"
                           key={Math.random()}
                           className="skill"
                           onClick={() => setSkill(element)}
                         >
                           {element.name}
-                        </li>
+                        </button>
                       );
                     }
                     return null;
                   })}
-                </ul>
+                </div>
               </div>
             ))}
           </div>
