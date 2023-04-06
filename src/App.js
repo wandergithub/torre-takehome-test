@@ -59,7 +59,7 @@ function App() {
           </div>
         </div>
       )}
-      {skill && <SkillDetails setSkill={setSkill} skill={skill} name={data.name} />}
+      {skill && <SkillDetails setSkill={setSkill} skill={skill} user={data} />}
     </div>
   );
 }
