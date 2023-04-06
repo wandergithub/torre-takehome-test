@@ -164,7 +164,8 @@ Example command:
   - [Back-End deployment](https://torre-c2xf.onrender.com)
 
 - A way for us to review your code through a control version system (for example, GitHub), where we can check your incremental progress. 
-[Github repo](https://github.com/wandergithub/torre-takehome-test)
+   - [Github repo front-end](https://github.com/wandergithub/torre-takehome-test)
+   - [Github repo back-end](https://github.com/wandergithub/torre-takehome-backend)
 
 - A paragraph answering this question: What else could you have done or improved if you had more time?
   - With more time I would:
