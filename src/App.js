@@ -7,7 +7,7 @@ import SkillDetails from './components/SkillDetails';
 
 function App() {
   // Current username serch
-  const [userName, setUserName] = useState('');
+  const [userName, setUserName] = useState('Jhon Doe');
   // Data fetched of the username
   const [data, setData] = useState();
   // Current Skill object for Details pop-up window
@@ -20,7 +20,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header setUserName={setUserName} fetchUserData={fetchUserData} />
+      <Header userName={userName} setUserName={setUserName} fetchUserData={fetchUserData} />
       {data && (
         <div className="px-3">
           <img src={data.picture} alt="Profile" />
