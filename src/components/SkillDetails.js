@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 const SkillDetails = (props) => {
   const { setSkill, skill, name } = props;
   console.log(skill);
@@ -39,7 +41,7 @@ const SkillDetails = (props) => {
       <div className="px-4 border-bottom border-secondary mt-5">
         <h5 className="heading-3 my-3 pb-4">
           {name}
-          's related experiences:
+          &apos;s related experiences:
         </h5>
       </div>
       <div className="px-4 mt-5">
@@ -49,6 +51,16 @@ const SkillDetails = (props) => {
       </div>
     </div>
   );
+};
+
+SkillDetails.propTypes = {
+  setSkill: PropTypes.func.isRequired,
+  skill: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.object])).isRequired,
+  name: PropTypes.string,
+};
+
+SkillDetails.defaultProps = {
+  name: 'default name',
 };
 
 export default SkillDetails;
