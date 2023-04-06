@@ -31,9 +31,9 @@ function App() {
               <div key={Math.random()}>
                 <div className="d-flex gap-2 icon">
                   {svgs[index]}
-                  <h5 className="heading-3 my-3">
+                  <h5 className="heading-3 my-3 text-capitalize">
                     {categorie !== "no-experience-interested"
-                      ? categorie.charAt(0).toUpperCase() + categorie.slice(1)
+                      ? categorie
                       : "No experience but interested"}
                   </h5>
                 </div>
@@ -44,7 +44,7 @@ function App() {
                         <li
                           key={Math.random()}
                           className="skill"
-                          onClick={() => setSkill(element) }
+                          onClick={() => setSkill(element)}
                         >
                           {element.name}
                         </li>
@@ -58,7 +58,7 @@ function App() {
           </div>
         </div>
       )}
-      {skill && <SkillDetails setSkill={setSkill} skill={skill} />}
+      {skill && <SkillDetails setSkill={setSkill} skill={skill} name={data.person.name} />}
     </div>
   );
 }
