@@ -65,15 +65,17 @@ const SkillDetails = (props) => {
         </h5>
       </div>
       <div className="px-4 border-bottom border-secondary mt-5">
-        <h5 className="heading-3 my-3 pb-4">
+        <h5 className="heading-2 my-3 pb-4">
           {user.name}
           &apos;s related experiences:
         </h5>
         {user.experiences.map((experience) => (
-          <div key={Math.random()}>
-            <h4>{experience.name}</h4>
-            <h5>{experience.organization}</h5>
-            <h5>
+          <div key={Math.random()} className="mb-4">
+            <h4 className="heading-3" style={{ color: '#cddc39' }}>
+              {experience.name}
+            </h4>
+            <h5 className="heading-3">{experience.organization}</h5>
+            <h5 className="heading-3">
               {experience.from_month}
               {' '}
               {experience.from_year}
@@ -81,18 +83,36 @@ const SkillDetails = (props) => {
           </div>
         ))}
       </div>
-      <div className="px-4 mt-5">
-        <h5 className="heading-3 my-3 pb-4">Other people with this skill:</h5>
-        <div>
+      <div className="px-4 my-5 d-flex flex-column align-items-start">
+        <h5 className="heading-2 my-3 pb-4">Other people with this skill:</h5>
+        <div style={{ width: '100%' }}>
           {/* Display users with same skill that are not the current user */}
-          {users && users.map((skillUser) => {
-            if (skillUser.name !== user.name) {
-              return (
-                <div key={Math.random()}>{skillUser.name}</div>
-              );
-            }
-            return null;
-          })}
+          {users
+            && users.map((skillUser) => {
+              if (skillUser.name !== user.name) {
+                return (
+                  <div
+                    key={Math.random()}
+                    className="d-flex align-items-center mb-3"
+                  >
+                    <img
+                      src={skillUser.picture}
+                      alt="profile"
+                      style={{ width: '50px', height: '50px', margin: '0' }}
+                    />
+                    <span className="ms-3">
+                      <h4 className="heading-3 m-0" style={{ color: '#cddc39' }}>
+                        {skillUser.name}
+                      </h4>
+                      <h5 className="heading-3 m-0" style={{ fontSize: '14px' }}>
+                        {skillUser.experiences[0].name}
+                      </h5>
+                    </span>
+                  </div>
+                );
+              }
+              return null;
+            })}
         </div>
       </div>
     </div>
